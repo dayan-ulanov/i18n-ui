@@ -1,7 +1,11 @@
-import fs from 'fs';
-import path from 'path';
-import type { Ora } from 'ora'
-import ora from 'ora'
+import fs from "fs";
+import type { Ora } from "ora";
+import ora from "ora";
+import path from "path";
+
+export function witeJsonFile(filePath: string, data: any): void {
+	fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+}
 
 export function showLoadingSpinner(message: string): Ora {
 	return ora(message).start();

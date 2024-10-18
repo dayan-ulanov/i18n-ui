@@ -1,8 +1,12 @@
-import path from "path";
 import fs from "fs";
+import path from "path";
 import { IGNORED_DIRECTORIES } from "../constants/ignoreFolderPath";
-import type { IJsonData } from '../types/localeTypes'
-import { findFiles, showLoadingSpinner } from '../utils/localeUtils'
+import type { IJsonData } from "../types/localeTypes";
+import {
+	findFiles,
+	showLoadingSpinner,
+	witeJsonFile,
+} from "../utils/localeUtils";
 
 export class LocaleService {
 	static isIgnored(filePath: string): boolean {
@@ -36,7 +40,7 @@ export class LocaleService {
 			}
 			spinner.fail("Файл не найден");
 			return {};
-		} catch(error) {
+		} catch (error) {
 			spinner.fail("Ошибка при чтении файла");
 			console.error(error);
 			return {};
@@ -45,9 +49,9 @@ export class LocaleService {
 
 	static writeJSONFile(filePath: string, data: IJsonData): void {
 		try {
-			LocaleService.writeJSONFile(filePath, data);
+			witeJsonFile(filePath, data);
 			console.log("Файл успешно записан.");
-		} catch(error) {
+		} catch (error) {
 			console.error("Ошибка при записи в файл:", error);
 		}
 	}
