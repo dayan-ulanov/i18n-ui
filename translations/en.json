@@ -1,0 +1,33 @@
+{
+  "greeting": "Hello, {name}!",
+  "login": {
+    "title": "Log in to your account",
+    "username": "Username",
+    "password": "Password",
+    "submit": "Log in",
+    "error": "Invalid credentials, please try again."
+  },
+  "profile": {
+    "header": "Your Profile",
+    "name": "Name",
+    "email": "Email",
+    "changePassword": "Change Password",
+    "logout": "Log out"
+  },
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "darkMode": "Enable Dark Mode",
+    "notifications": "Notifications",
+    "saveChanges": "Save Changes"
+  },
+  "messages": {
+    "welcome": "Welcome to the application!",
+    "farewell": "Goodbye, see you soon!"
+  },
+  "buttons": {
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  }
+}
