@@ -6,9 +6,7 @@ import { showMenu } from "./menuController";
 export async function selectLanguage(): Promise<void> {
 	const localeFiles = LocaleService.findLocaleFiles();
 
-	const languageNames = localeFiles.map((filePath) =>
-		path.basename(filePath, path.extname(filePath))
-	);
+	const languageNames = Array.from(new Set(localeFiles.map((filePath) => path.basename(filePath, path.extname(filePath)))));
 
 	const { languageFile } = await inquirer.prompt([
 		{
@@ -20,5 +18,6 @@ export async function selectLanguage(): Promise<void> {
 	]);
 
 	const filePath = localeFiles[languageNames.indexOf(languageFile)];
+
 	showMenu(filePath);
 }

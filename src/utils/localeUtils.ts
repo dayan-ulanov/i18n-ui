@@ -3,7 +3,7 @@ import type { Ora } from "ora";
 import ora from "ora";
 import path from "path";
 
-export function witeJsonFile(filePath: string, data: any): void {
+export function writeJsonFile(filePath: string, data: any): void {
 	fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
 }
 
