@@ -1,11 +1,10 @@
 import inquirer from "inquirer";
 import { LocaleService } from "./localeService";
+import { showMenu } from '../controllers/menuController'
 
 export class KeyService {
 	static async addKey(filePath: string): Promise<void> {
 		const data = LocaleService.readJSONFile(filePath);
-
-		console.log(data);
 
 		const { key, value } = await inquirer.prompt([
 			{
@@ -26,8 +25,7 @@ export class KeyService {
 		data[key] = value;
 		LocaleService.writeJSONFile(filePath, data);
 		console.log("Ключ успешно добавлен.");
-		// FIX_ME: Нужно добавить showMenu функцию
-		// showMenu(filePath);
+		showMenu(filePath);
 	}
 
 	static async updateKey(filePath: string): Promise<void> {
@@ -36,8 +34,7 @@ export class KeyService {
 
 		if (keys.length === 0) {
 			console.log("Нет ключей для изменения.");
-			// FIX_ME: Нужно добавить showMenu функцию
-			// return showMenu(filePath);
+			return showMenu(filePath);
 		}
 
 		const { key, newValue } = await inquirer.prompt([
@@ -57,8 +54,7 @@ export class KeyService {
 		data[key] = newValue;
 		LocaleService.writeJSONFile(filePath, data);
 		console.log("Значение ключа успешно обновлено.");
-		// FIX_ME: Нужно добавить showMenu функцию
-		// showMenu(filePath);
+		showMenu(filePath);
 	}
 
 	static async deleteKey(filePath: string): Promise<void> {
@@ -67,8 +63,7 @@ export class KeyService {
 
 		if (keys.length === 0) {
 			console.log("Нет ключей для удаления.");
-			// FIX_ME: Нужно добавить showMenu функцию
-			// return showMenu(filePath);
+			return showMenu(filePath);
 		}
 
 		const { key } = await inquirer.prompt([
@@ -83,7 +78,6 @@ export class KeyService {
 		delete data[key];
 		LocaleService.writeJSONFile(filePath, data);
 		console.log("Ключ успешно удалён.");
-		// FIX_ME: Нужно добавить showMenu функцию
-		// showMenu(filePath);
+		showMenu(filePath);
 	}
 }
